@@ -59,6 +59,8 @@ const userSchema = new mongoose.Schema({
   }
   ,your_cart:[cartSchema],
   your_orders:[orderSchema]
+  ,phone:{ type:Number,
+  required:[true]}
   
 });
 

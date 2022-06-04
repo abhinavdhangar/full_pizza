@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb://localhost:27017/pizza';
+const dbURI = 'mongodb://localhost:27017/pizza_shop';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true})
   .then((result) => app.listen(3000,()=>console.log("connected to port !!!")))
   .catch((err) => console.log(err));
