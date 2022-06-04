@@ -21,6 +21,8 @@ import Loading from "./components/Loading/Loading";
 import Testing from "./components/Avatar/Cart.avatar";
 import Otp_Page from "./components/Authentications/Otp_Page";
 import  { LoginContext } from "../context/LoginContext";
+import Products from './components/Product';
+import Product_content from './components/Product_content';
 
 const App = ()=>{
 let LoggedIn = Cookie.get("LoggedIn")
@@ -33,13 +35,14 @@ let LoggedIn = Cookie.get("LoggedIn")
     <Routes>
       <Route path="/" element={<Hero />} />
       <Route path="/hola" element={<Testing />} />
-
+      <Route path="/product" element={<Products />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="*" element={<NoMatch/>}/>
       <Route path='blogs' element={LoggedIn?<Blogs/>:<Login/>}/>
       <Route path="otp" element={<Otp_Page/>}/>
       <Route path="blogs/:id" element={<Content  />}/>
+      <Route path='product/:id' element={<Product_content/>}/>
     </Routes>
   </BrowserRouter>
       
