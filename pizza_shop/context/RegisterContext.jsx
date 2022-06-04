@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, createContext } from 'react'
 import axios from 'axios'
-
+import Cookie from 'js-cookie'
 export const RegisterContext = createContext()
 const RegisterContextProvider = (props) => {
   const [click, setclick] = useState(0)
@@ -9,7 +9,7 @@ const RegisterContextProvider = (props) => {
   const [password, setpassword] = useState('')
   const [LoggedIn, setLoggedIn] = useState(false)
   const [age, setage] = useState(0)
-  const [phone, setphone] = useState()
+  const [phone, setphone] = useState('')
   const [first_name, setfirst_name] = useState('')
   const [last_name, setlast_name] = useState('')
   const initial = useRef(false)
@@ -33,30 +33,26 @@ const RegisterContextProvider = (props) => {
         console.log(response)
         setclick(click + 1)
         setLoggedIn(true)
-
+        Cookie.set("LoggedIn", true, {
+          expires: 10,
+          secure: true
+        })
         console.log(LoggedIn, click)
-
+        setresponse(response.data.token)
       }).catch((response) => {
         console.log(response)
         seterror(response)
       })
   }
   useEffect(() => {
-    console.log('click huaa !!!!', click, LoggedIn)
-    if (initial.current) {
-      // if (LoggedIn == true) {
-      //   location.assign("/")
-      // }
-      // else { location.assign("/about") }
-      console.log('tuere dfakl')
-    }
-    else {
-      initial.current = true
+  //if LoggedIn is true then redirect to home page
+  if (LoggedIn) {
+   location.assign('/')
 
-
-    }
-
-  }, [click])
+   console.log(response)
+   Cookie.set("jwt",response,{expires:10,secure:true})
+ 
+  }}, [LoggedIn])
   return (
     <RegisterContext.Provider value={{ click, error, LoggedIn, setemail, setpassword, setage, setfirst_name, setlast_name,PostData, setphone }}>
       {props.children}

@@ -56,10 +56,10 @@ module.exports.login_get = (req, res) => {
 
 module.exports.signup_post = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  const { first_name,last_name,email, password ,age , mobile_number} = req.body;
+  const { first_name,last_name,email, password ,age , phone} = req.body;
 
   try {
-    const user = await User.create({ first_name,last_name,email, password ,age,mobile_number });
+    const user = await User.create({ first_name,last_name,email, password ,age,phone });
     const token = createToken(user);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ token:token});
