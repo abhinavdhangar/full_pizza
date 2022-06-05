@@ -1,8 +1,11 @@
-import React, { useRef,useEffect } from "react";
+import React, { useRef,useEffect,useContext } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import {create} from '@lottiefiles/lottie-interactivity'
-
+import { Productcontext } from "../../context/Productcontext";
+Productcontext
 export default function Hola(){
+  const {products} =useContext(Productcontext)
+  console.log('ye pubg',products)
 const container = useRef(null)
 const chatak=()=> {
   let hola_style = container.current.props.style

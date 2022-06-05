@@ -85,19 +85,19 @@ export default function Navbar() {
             <NavLink key='about' to='/about' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
              About
             </NavLink>
+            <NavLink key='cart' to='cart' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
+              Cart
+            </NavLink>
             {!statementt&&<NavLink key='login' to='/login' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
              Login
             </NavLink>}
             <NavLink key='logout' to='logout' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
               logout
             </NavLink>
-            <NavLink key='cart' to='cart' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
-              {/* <Testing/> */}
-            </NavLink>
+           
            {!statementt&& <NavLink key='register' to='register' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
               register
             </NavLink>}
-
           </div>
         </nav>
       </div>

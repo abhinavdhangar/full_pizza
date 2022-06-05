@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect,useContext } from 'react'
 import { Link } from "react-router-dom";
 let calling = { ...callouts }.data
 console.log('calling hai ye', calling)
@@ -7,6 +7,7 @@ import Loader from './Loader'
 import Empty_message from './Empty_message'
 import Loading_skeleton from './Loading/Skeleton_blog'
 import callouts from '../Data/Product_data'
+import { Productcontext } from '../../context/Productcontext';
 
 /*
   This example requires Tailwind CSS v2.0+ 
@@ -29,8 +30,8 @@ import callouts from '../Data/Product_data'
 
 export default function Products() {
 
-
-
+   const {products} = useContext(Productcontext)
+  console.log('ye mera product hai',products)
     const [count, setcount] = useState(0)
     const [items, setitems] = useState(calling.slice(0, 6))
     const [if_hasMore, setif_hasMore] = useState(true)
@@ -70,7 +71,7 @@ export default function Products() {
 
 
                         <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-y-8 lg:gap-x-6">
-                            {items.map((callout) => (
+                            {calling.map((callout) => (
                                 <div key={callout.name} className="group relative">
                                     <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                                         <img

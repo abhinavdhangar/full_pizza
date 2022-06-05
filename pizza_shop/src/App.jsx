@@ -23,6 +23,11 @@ import Otp_Page from "./components/Authentications/Otp_Page";
 import  { LoginContext } from "../context/LoginContext";
 import Products from './components/Product';
 import Product_content from './components/Product_content';
+import Vilen from './components/Vilen';
+import Vilen2 from './Vilen2';
+import Cart_content from './components/Cart_content';
+import Cart_badge from './components/Avatar/Cart_avatar';
+
 
 const App = ()=>{
 let LoggedIn = Cookie.get("LoggedIn")
@@ -34,8 +39,8 @@ let LoggedIn = Cookie.get("LoggedIn")
      <Navbar />
     <Routes>
       <Route path="/" element={<Hero />} />
-      <Route path="/hola" element={<Testing />} />
-      <Route path="/product" element={<Products />} />
+      <Route path="/hola" element={<Vilen />} />
+      <Route path="/product" element={<Vilen />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="*" element={<NoMatch/>}/>
@@ -43,6 +48,8 @@ let LoggedIn = Cookie.get("LoggedIn")
       <Route path="otp" element={<Otp_Page/>}/>
       <Route path="blogs/:id" element={<Content  />}/>
       <Route path='product/:id' element={<Product_content/>}/>
+      <Route path='pp' element={<Vilen2/>}/>
+      <Route path='cart' element={<Cart_badge/>}/>
     </Routes>
   </BrowserRouter>
       
