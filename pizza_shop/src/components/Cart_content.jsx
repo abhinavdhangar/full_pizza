@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { Fragment, useState ,useContext} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
+import { CartDialogContext } from '../../context/Cartdialogcontext'
 
 const products = [
   {
@@ -29,11 +30,11 @@ const products = [
 ]
 
 export default function Cart_content() {
-  const [open, setOpen] = useState(true)
+  const {open,setopen} = useContext(CartDialogContext)
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog as="div" className="relative z-10" onClose={setopen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -67,7 +68,7 @@ export default function Cart_content() {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={() => setopen(false)}
                           >
                             <span className="sr-only">Close panel</span>
                             <XIcon className="h-6 w-6" aria-hidden="true" />

@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { Fragment, useState ,useContext, useEffect} from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import LoadingBar from 'react-top-loading-bar'
 import Testing from './Avatar/Cart.avatar'
@@ -20,6 +20,9 @@ import {
 
 import { NavLink } from 'react-router-dom'
 import jsCookie from 'js-cookie'
+import Carr from './Avatar/Cart_avatar2'
+import { CartDialogContext } from '../../context/Cartdialogcontext'
+import { Productcontext } from '../../context/Productcontext'
 
 
 const navigation = [
@@ -35,9 +38,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 export default function Navbar() {
+  const {setopen,open} = useContext(CartDialogContext)
+  const {fetchCartSubTotal} = useContext(Productcontext)
   let statementt = jsCookie.get("jwt")?true:false
   const [progress, setProgress] = useState(0)
+  // useEffect(()=>{fetchCartSubTotal()},[open])
   function LoadingStatus() {
+ setopen(true)
     setProgress(20)
     setTimeout(() => {
       setProgress(50)
@@ -54,7 +61,7 @@ export default function Navbar() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <div className="fixed w-screen bg-white pt-6  mx-4 md:mx-0 sm:px-6 lg:px-8">
+      <div className="fixed pb-4 w-screen bg-white pt-6  mx-4 md:mx-0 sm:px-6 lg:px-8">
         <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
           <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div className="flex items-center justify-between w-full md:w-auto">
@@ -86,7 +93,7 @@ export default function Navbar() {
              About
             </NavLink>
             <NavLink key='cart' to='cart' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
-              Cart
+              <Carr/>
             </NavLink>
             {!statementt&&<NavLink key='login' to='/login' onClick={LoadingStatus} className={({ isActive }) => (isActive ? "font-medium text-indigo-600 hover:text-indigo-500" : "font-medium text-gray-500 hover:text-gray-900")} >
              Login

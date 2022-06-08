@@ -42,3 +42,18 @@
 //     res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 // }
 // );
+
+//commercejs increment button to cart route
+// app.get('/cart/:id', function(req, res){
+//     var productId = req.params.id;
+//     var cart = new Cart(req.session.cart ? req.session.cart : {});
+//     Product.findById(productId, function(err, product){
+//         if(err){
+//             return res.redirect('/');
+//         }
+//         cart.add(product, product.id);
+//         req.session.cart = cart;
+//         console.log(req.session.cart);
+//         res.redirect('/');
+//     });
+// });

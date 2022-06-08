@@ -26,8 +26,9 @@ import Product_content from './components/Product_content';
 import Vilen from './components/Vilen';
 import Vilen2 from './Vilen2';
 import Cart_content from './components/Cart_content';
-import Cart_badge from './components/Avatar/Cart_avatar';
-
+import Carr from './components/Avatar/Cart_avatar2';
+import Cart_content_Testing from './components/Avatar/Cart_avatar';
+import Checkout from './components/checkout_form/Checkout';
 
 const App = ()=>{
 let LoggedIn = Cookie.get("LoggedIn")
@@ -37,6 +38,7 @@ let LoggedIn = Cookie.get("LoggedIn")
         
      <BrowserRouter>
      <Navbar />
+     <div className='h-24'></div>
     <Routes>
       <Route path="/" element={<Hero />} />
       <Route path="/hola" element={<Vilen />} />
@@ -49,7 +51,8 @@ let LoggedIn = Cookie.get("LoggedIn")
       <Route path="blogs/:id" element={<Content  />}/>
       <Route path='product/:id' element={<Product_content/>}/>
       <Route path='pp' element={<Vilen2/>}/>
-      <Route path='cart' element={<Cart_badge/>}/>
+      <Route path='cart' element={<Cart_content_Testing/>}/>
+      <Route path='checkout' element={<Checkout/>}/>
     </Routes>
   </BrowserRouter>
       
