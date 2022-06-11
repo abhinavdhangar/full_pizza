@@ -58,7 +58,7 @@ console.log('ye cart hai hbafj ',cart)
                         </div>
                       </div>
 
-                      <div className="mt-8">
+                     { !Object.keys(cart).length==0 ?<div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cart.line_items && cart.line_items.map((product) => (
@@ -102,7 +102,7 @@ console.log('ye cart hai hbafj ',cart)
                             ))}
                           </ul>
                         </div>
-                      </div>
+                      </div>:<h1>loading...</h1>}
                     </div>
 
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">

@@ -1,6 +1,8 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+// import { ShippingContext } from '../../../context/ShippingContext'
 const AddressForm = () => {
+  // const {option}=useContext(ShippingContext)
+  // console.log('ye option hai',option)
   return (
 
         <form>

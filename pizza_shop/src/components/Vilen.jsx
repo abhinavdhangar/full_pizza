@@ -10,6 +10,7 @@ import callouts from '../Data/Product_data'
 import { Productcontext } from '../../context/Productcontext';
 
 
+
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -30,13 +31,21 @@ import { Productcontext } from '../../context/Productcontext';
 
 export default function Vilen() {
   const { handleAddToCart } = useContext(Productcontext)
-  const { products } = useContext(Productcontext)
-  return (
-    <div className="bg-slate-100">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+  let { products } = useContext(Productcontext)
+  // 
+ 
+    
+    
+      // 
+         console.log('ye bro ye bhi product hai',products)
 
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+  
+  return (
+    <div className="bg-slate-200">
+      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="">Products</h2>
+
+       {!products.length==0? <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <Link to={product.name} key={product.id} className="group">
               <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
@@ -60,7 +69,7 @@ export default function Vilen() {
               <p className="mt-1 text-lg font-medium text-gray-900">{product.price.formatted_with_symbol}</p>
             </Link>
           ))}
-        </div>
+        </div>:<h2>loading...</h2>}
       </div>
     </div>
   )

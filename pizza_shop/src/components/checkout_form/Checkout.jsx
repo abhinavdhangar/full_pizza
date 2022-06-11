@@ -24,16 +24,16 @@ export default function Checkout() {
       <div>this is address</div>
     )
   }
-  let tatta = ''
+  let show = ''
   if(activeStep==0){
       
-        tatta = <AddressForm/>
+        show = <AddressForm/>
       }
       if(activeStep==1){
-        tatta = 'user details'
+        show = 'user details'
       }
       if(activeStep==2){
-        tatta = 'payment form'
+        show = 'payment form'
       }
 
 
@@ -109,7 +109,7 @@ export default function Checkout() {
         </React.Fragment>
       ) : (
           <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {tatta}</Typography>
+          <Typography sx={{ mt: 2, mb: 1 }}>Step {show}</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
               color="inherit"

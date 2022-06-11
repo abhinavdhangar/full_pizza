@@ -2,11 +2,13 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 
 import { LockClosedIcon } from '@heroicons/react/solid'
 
+
 import { LoginContext } from '../../context/LoginContext'
+import { LoginCommerceContext } from '../../context/LoginCommerce'
 export default function Login() {
+const {CustomerLogin} = useContext(LoginCommerceContext)
 
-
- const { LoggedIn,response,click,error, PostData, setemail, setpassword } = useContext(LoginContext)
+ const { LoggedIn,response,click,error, PostData, setemail,email, setpassword } = useContext(LoginContext)
  let button = useRef(null)
  
 console.log(response)
@@ -31,7 +33,7 @@ console.log(response)
               </a>
             </p>
           </div>
-          <form onSubmit={PostData}  className="mt-8 space-y-6" >
+          <form onSubmit={()=>{CustomerLogin('chalbombay@gmail.com','http://localhost:3000/login')}}  className="mt-8 space-y-6" >
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>

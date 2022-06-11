@@ -13,7 +13,7 @@ import Login from './components/Login';
 import NoMatch from './components/NoMatch';
 import Blogs from './Blogs';
 import Content from './components/Content';
-
+SelectSmall
 import Hola from './components/Hola';
 import Scroll from "./components/Scroll";
 import Aim from "./components/Aim";
@@ -29,6 +29,7 @@ import Cart_content from './components/Cart_content';
 import Carr from './components/Avatar/Cart_avatar2';
 import Cart_content_Testing from './components/Avatar/Cart_avatar';
 import Checkout from './components/checkout_form/Checkout';
+import SelectSmall from './components/SelectOptions';
 
 const App = ()=>{
 let LoggedIn = Cookie.get("LoggedIn")
@@ -53,6 +54,7 @@ let LoggedIn = Cookie.get("LoggedIn")
       <Route path='pp' element={<Vilen2/>}/>
       <Route path='cart' element={<Cart_content_Testing/>}/>
       <Route path='checkout' element={<Checkout/>}/>
+      <Route path="sleect" element={<SelectSmall/>}/>
     </Routes>
   </BrowserRouter>
       
